@@ -1,21 +1,38 @@
-//
-//  ContentView.swift
-//  ChatGPT
-//
-//  Created by Илья on 09.02.2023.
-//
-
 import SwiftUI
+import OpenAISwift
+
+let apiKey = ProcessInfo.processInfo.environment["OPENAI_TOKEN"]!
+let openAI = OpenAISwift(authToken: apiKey)
+
+func chatGPT(request: String) async -> String {
+    do {
+        let result = try await openAI.sendCompletion(with: request, maxTokens: 500)
+        return result.choices.first!.text
+    } catch {
+        print(error.localizedDescription)
+    }
+    return "Ошибка"
+}
 
 struct ContentView: View {
+    @State var userRequest = ""
+    @State var gptAnswer = ""
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text(gptAnswer)
+            Spacer()
+            HStack {
+                TextField("Запрос", text: $userRequest, prompt: Text("Введите"))
+                Button("Отправить") {
+                    Task {
+                        let answer = await chatGPT(request: userRequest)
+                        let splitted = answer.split(separator: "\n")
+                        gptAnswer = String(splitted[1])
+                    }
+                }
+            }
         }
-        .padding()
     }
 }
 

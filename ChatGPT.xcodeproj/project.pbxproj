@@ -11,6 +11,8 @@
 		4FF8129629948A0E00961819 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF8129529948A0E00961819 /* ContentView.swift */; };
 		4FF8129829948A1000961819 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FF8129729948A1000961819 /* Assets.xcassets */; };
 		4FF8129B29948A1000961819 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FF8129A29948A1000961819 /* Preview Assets.xcassets */; };
+		4FF812A629948D3A00961819 /* OpenAISwift in Frameworks */ = {isa = PBXBuildFile; productRef = 4FF812A529948D3A00961819 /* OpenAISwift */; };
+		4FF812A9299497BB00961819 /* Message.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF812A8299497BB00961819 /* Message.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,7 @@
 		4FF8129529948A0E00961819 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		4FF8129729948A1000961819 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4FF8129A29948A1000961819 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		4FF812A8299497BB00961819 /* Message.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Message.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,6 +29,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FF812A629948D3A00961819 /* OpenAISwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -51,6 +55,7 @@
 		4FF8129229948A0E00961819 /* ChatGPT */ = {
 			isa = PBXGroup;
 			children = (
+				4FF812A72994978D00961819 /* Models */,
 				4FF8129329948A0E00961819 /* ChatGPTApp.swift */,
 				4FF8129529948A0E00961819 /* ContentView.swift */,
 				4FF8129729948A1000961819 /* Assets.xcassets */,
@@ -65,6 +70,14 @@
 				4FF8129A29948A1000961819 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		4FF812A72994978D00961819 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4FF812A8299497BB00961819 /* Message.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +96,9 @@
 			dependencies = (
 			);
 			name = ChatGPT;
+			packageProductDependencies = (
+				4FF812A529948D3A00961819 /* OpenAISwift */,
+			);
 			productName = ChatGPT;
 			productReference = 4FF8129029948A0E00961819 /* ChatGPT.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +127,9 @@
 				Base,
 			);
 			mainGroup = 4FF8128729948A0E00961819;
+			packageReferences = (
+				4FF812A429948D3A00961819 /* XCRemoteSwiftPackageReference "OpenAISwift" */,
+			);
 			productRefGroup = 4FF8129129948A0E00961819 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -137,6 +156,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FF812A9299497BB00961819 /* Message.swift in Sources */,
 				4FF8129629948A0E00961819 /* ContentView.swift in Sources */,
 				4FF8129429948A0E00961819 /* ChatGPTApp.swift in Sources */,
 			);
@@ -339,6 +359,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		4FF812A429948D3A00961819 /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamrushy/OpenAISwift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		4FF812A529948D3A00961819 /* OpenAISwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 4FF812A429948D3A00961819 /* XCRemoteSwiftPackageReference "OpenAISwift" */;
+			productName = OpenAISwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 4FF8128829948A0E00961819 /* Project object */;
 }
